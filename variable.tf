@@ -9,6 +9,6 @@ variable "resource_group_name" {
 }
 
 variable "location" {
-   default = "westeurope"
+   default = "<%=customOptions.azureLocation%>"
    description = "Location where resources will be created"
 }
