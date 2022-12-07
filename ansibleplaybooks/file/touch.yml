@@ -1,5 +1,6 @@
 ---
 - hosts: all  
+  gather_facts: no
   vars: 
     file_to_touch: "{{ morpheus['customOptions']['filetotouch'] }}"
   tasks:
@@ -10,4 +11,4 @@
         state: touch
         mode: '0644'
     - name: ls
-      command: ls /tmp
+      command: ls "{{file_to_touch}}"
