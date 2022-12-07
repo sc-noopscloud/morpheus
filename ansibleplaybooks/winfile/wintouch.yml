@@ -1,11 +1,11 @@
 ---
 - hosts: all  
-  gather_facts: true
+  gather_facts: false
+  become: false
   vars: 
     file_to_touch: "{{ morpheus['customOptions']['filetotouch'] }}"
   tasks:
-    - name: Touch a file (creates if not present, updates modification time if present)
-      become: true
-      win_file:
+    - name: Touch a file 
+      ansible.windows.win_file:
         path: "{{file_to_touch}}"
         state: touch
