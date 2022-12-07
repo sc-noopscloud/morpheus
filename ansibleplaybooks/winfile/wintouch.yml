@@ -6,6 +6,6 @@
   tasks:
     - name: Touch a file (creates if not present, updates modification time if present)
       become: true
-      ansible.windows.win_file:
+      win_file:
         path: "{{file_to_touch}}"
         state: touch
