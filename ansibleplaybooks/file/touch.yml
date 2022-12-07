@@ -1,6 +1,6 @@
 ---
 - hosts: all  
-  gather_facts: no
+  gather_facts: yes
   vars: 
     file_to_touch: "{{ morpheus['customOptions']['filetotouch'] }}"
   tasks:
