@@ -1,0 +1,9 @@
+- hosts: all
+  vars: 
+    file_to_touch: "{{ morpheus['customOptions']['filetotouch'] }}"
+  tasks:
+  - name: create a file if it doesnt exist
+     become: yes
+     file:
+       path: "{{file_to_touch}}"
+       state: touch
