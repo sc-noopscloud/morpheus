@@ -8,6 +8,6 @@
       file:
         path: "{{file_to_touch}}"
         state: touch
-        mode: '755'
+        mode: '0644'
     - name: ls
       command: ls /tmp
