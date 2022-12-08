@@ -1,16 +1,16 @@
 ---
 - hosts: all  
   gather_facts: false
-  become: false
+  become: true
   vars: 
     file_to_touch: "{{ morpheus['customOptions']['filetotouch'] }}"
 
   tasks:
     - name: Debug Output
       debug:
-        msg: "{{file_to_touch}}"
+        msg: "{{ file_to_touch }}"
     - name: Touch a file 
       ansible.windows.win_file:
-        path: "{{file_to_touch}}"
+        path: "{{ file_to_touch }}"
         state: touch
         
