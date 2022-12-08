@@ -1,7 +1,7 @@
 ---
 - hosts: all  
   gather_facts: false
-  become: true
+  become: false
   vars: 
     file_to_touch: "{{ morpheus['customOptions']['filetotouch'] }}"
 
@@ -9,8 +9,17 @@
     - name: Debug Output
       debug:
         msg: "{{ file_to_touch }}"
+
+    - name: Create directory structure
+      ansible.windows.win_file:
+        path: "C:\Temp"
+        state: directory
+
     - name: Touch a file 
       ansible.windows.win_file:
         path: "{{ file_to_touch }}"
         state: touch
+
+    - name: Run an executable using win_command
+      win_command: whoami.exe
         
