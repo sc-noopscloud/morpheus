@@ -12,5 +12,5 @@
           name: "{{ morpheus['instance']['hostname'] }}"
           password: "DrPig%12345!"
           state: present
-          password_never_expires: "yes"
+          password_never_expires: no
 
