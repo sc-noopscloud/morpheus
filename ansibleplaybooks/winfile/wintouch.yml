@@ -3,23 +3,24 @@
   gather_facts: false
   become: false
   vars: 
+    dir_path: "{{ morpheus['customOptions']['dirpath'] }}"
     file_to_touch: "{{ morpheus['customOptions']['filetotouch'] }}"
 
   tasks:
     - name: Debug Output
       debug:
-        msg: "{{ file_to_touch }}"
+        msg: "{{ dir_path }} {{ file_to_touch }}"
 
     - name: Create directory structure
       ansible.windows.win_file:
-        path: 'C:\Temp'
+        path: "{{ dir_path }}"
         state: directory
 
     - name: Touch a file 
       ansible.windows.win_file:
-        path: "{{ file_to_touch }}"
+        path: "{{ dir_path }}\{{ file_to_touch }}"
         state: touch
 
     - name: Run an executable using win_command
-      win_command: whoami.exe
-        
+      ansible.windows.win_command: whoami.exe
+      
