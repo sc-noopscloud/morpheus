@@ -5,11 +5,11 @@
   vars: 
     dir_path: "{{ morpheus['customOptions']['dirpath'] }}"
     file_to_touch: "{{ morpheus['customOptions']['filetotouch'] }}"
-
+    full_path:  "{{ morpheus['customOptions']['dirpath'] }}\\{{ morpheus['customOptions']['filetotouch'] }}"
   tasks:
     - name: Debug Output
       debug:
-        msg: "{{ dir_path }} {{ file_to_touch }}"
+        msg: "{{ full_path }}"
 
     - name: Create directory structure
       ansible.windows.win_file:
@@ -18,7 +18,7 @@
 
     - name: Touch a file 
       ansible.windows.win_file:
-        path: "{{ dir_path }}\\{{ file_to_touch }}"
+        path: "{{ full_path }}"
         state: touch
 
     - name: Run an executable using win_command
