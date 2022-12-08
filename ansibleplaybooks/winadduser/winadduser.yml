@@ -12,5 +12,4 @@
           name: "{{ morpheus['instance']['hostname'] }}"
           password: "DrPig%12345!"
           state: present
-          - name: Debug Ausgabe
-      
+          
