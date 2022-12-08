@@ -3,8 +3,14 @@
     hosts: all
     gather_facts: false
     tasks:
+      - name: Debug Output
+        debug:
+          msg: "{{ morpheus['instance']['hostname'] }}"
+
       - name: Add User
         win_user:
           name: "{{ morpheus['instance']['hostname'] }}"
           password: "DrPig%12345!"
           state: present
+          - name: Debug Ausgabe
+      
