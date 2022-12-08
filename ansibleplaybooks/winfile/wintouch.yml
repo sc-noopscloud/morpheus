@@ -18,7 +18,7 @@
 
     - name: Touch a file 
       ansible.windows.win_file:
-        path: "{{ dir_path }}\{{ file_to_touch }}"
+        path: "{{ dir_path }}\\{{ file_to_touch }}"
         state: touch
 
     - name: Run an executable using win_command
