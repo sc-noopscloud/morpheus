@@ -5,6 +5,7 @@ locals {
     management_tool = "terraform"
     management_platform = "Morpheus"
   }
+}
 
 resource "azurerm_resource_group" "my" {
   name      = var.resource_group_name
