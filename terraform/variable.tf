@@ -5,7 +5,7 @@ variable "clientsecret" {}
 
 variable "resource_group_name" {
    description = "Name of the resource group in which the resources will be created"
-   default     = "<%=customOptions.azureRgName%>-<%=instance.instanceContext%>"
+   default     = "sc-rg-morpheus-<%=instance.instanceContext%>-wrksp-01"
 }
 
 variable "location" {
