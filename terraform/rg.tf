@@ -1,7 +1,7 @@
 locals {
   #  Common tags to be assigned to all resources
   default_tags = {
-    creator    = "<%= username %>"
+    creator    = "<%= user.email %>"
     management_tool = "terraform"
     management_platform = "Morpheus"
   }
