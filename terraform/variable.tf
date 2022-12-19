@@ -5,7 +5,7 @@ variable "clientsecret" {}
 
 variable "resource_group_name" {
    description = "Name of the resource group in which the resources will be created"
-   default     = "sc-rg-<%=apps.name%>"
+   default     = "<%=customOptions.azureRgName%>"
 }
 
 variable "location" {
